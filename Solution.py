@@ -503,33 +503,43 @@ class Solution:
 
         return temp.next
 
-    # def oddEvenList(self, head):
-    #     """
-    #
-    #     :type head: ListNode
-    #     :rtype: ListNode
-    #     """
-    #     if head ==None:
-    #         return None
-    #     j = ListNode(1)
-    #     o = ListNode(2)
-    #     a,b = j,o
-    #     ji = True
-    #     while head !=None:
-    #         if ji and head.next !=None:
-    #             a.next = head
-    #             head = head.next
-    #             a = a.next
-    #             ji =False
-    #         elif not ji and head.next !=None:
-    #             b.next = head
-    #             head = head.next
-    #             b = b.next
-    #             ji = True
-    #         if head!=None and head.next ==None:
-    #             a.next = o.next
-    #             break
-    #     return j.next
+    def oddEvenList(self, head):
+        """
+
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if head ==None:
+            return None
+        j = ListNode(-1)
+        o = ListNode(-2)
+        a,b = j,o
+        ji = True
+        while head !=None:
+            if ji and head.next !=None:
+                j.next = head
+                head = head.next
+                j = j.next
+                ji =False
+            elif not ji and head.next !=None:
+                o.next = head
+                head = head.next
+                o = o.next
+                ji = True
+            elif ji and head.next == None:
+                j.next = head
+                head = head.next
+                j = j.next
+                o.next =None
+                j.next = b.next
+            elif not ji and head.next == None:
+                o.next = head
+                head = head.next
+                o = o.next
+                o.next = None
+                j.next = b.next
+        return a.next
+
     def replaceElements(self, arr):
         """
         :type arr: List[int]
@@ -593,17 +603,30 @@ class Solution:
 
     def canReach(self, arr, start):
         """
+        @1306跳跃游戏 III  (经典化dfs题)
         :type arr: List[int]
         :type start: int
         :rtype: bool
         """
-        zhi = arr[start]
-        for i in range(len(arr)):
-            if zhi - arr[i]==0 or zhi+arr[i]==0:
-                return True
-            if zhi = sum()
-        else:
-            return False
+        q, v, n = [start], {start}, len(arr)
+        while q:
+            p = []
+            for i in q:
+                if not arr[i]:
+                    return True
+                for j in i - arr[i], i + arr[i]:
+                    if 0 <= j < n and j not in v:
+                        p.append(j)
+                        v.add(j)
+            q = p
+        return False
+
+    def isPalindrome(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+
 
 
 
