@@ -1,12 +1,16 @@
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from ListNode import ListNode
+from ListNode import ListNodep
+from ListNode import Node
+from TreeNode import TreeNode
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 class Solution:
     def __init__(self):
         pass
@@ -626,6 +630,72 @@ class Solution:
         :type head: ListNode
         :rtype: bool
         """
+
+    def mergeTwoLists(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+
+    def addTwoNumbers(self, l1, l2):
+        """
+        @2 两数相加
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        shu1,shu2=0,0
+        i = 0
+        while l1 !=None:
+            shu1 += l1.val*10**i
+            i+=1
+            l1 = l1.next
+        i =0
+        while l2 !=None:
+            shu2 += l2.val*10**i
+            i+=1
+            l2 = l2.next
+        res = str(shu1+shu2)
+        p = ListNode(0)
+        a = p
+        for j in range(len(res)):
+            x= int(res[len(res)-j-1])
+            p.next = ListNode(x)
+            p = p.next
+        return a.next
+
+    def flatten(self, head):
+        """
+        @430. 扁平化多级双向链表
+        :type head: Node
+        :rtype: Node
+        """
+        if not head:
+            return head
+
+        # pseudo head to ensure the `prev` pointer is never none
+        pseudoHead = Node(None, None, head, None)
+        self.flatten_dfs(pseudoHead, head)
+
+        # detach the pseudo head from the real head
+        pseudoHead.next.prev = None
+        return pseudoHead.next
+
+    def flatten_dfs(self, prev, curr):
+        """ return the tail of the flatten list """
+        if not curr:
+            return prev
+
+        curr.prev = prev
+        prev.next = curr
+
+        # the curr.next would be tempered in the recursive function
+        tempNext = curr.next
+        tail = self.flatten_dfs(curr, curr.child)
+        curr.child = None
+        return self.flatten_dfs(tail, tempNext)
+
 
 
 
