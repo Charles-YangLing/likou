@@ -696,6 +696,194 @@ class Solution:
         curr.child = None
         return self.flatten_dfs(tail, tempNext)
 
+    def maxProfit(self, prices):
+        """
+        @122买卖股票的最佳时机 II
+        :type prices: List[int]
+        :rtype: int
+        """
+        profit = 0
+        for i in range(1, len(prices)):
+            tmp = prices[i] - prices[i - 1]
+            if tmp > 0: profit += tmp
+        return profit
+
+    def containsDuplicate(self, nums):
+        """
+        @217. 存在重复元素
+        :type nums: List[int]
+        :rtype: bool
+        """
+        s =set()
+        for i in range(len(nums)):
+            if nums[i] in s:
+                return True
+            else:s.add(nums[i])
+        return False
+
+    @staticmethod #静态方法的定义
+    def singleNumber( nums):
+        """
+        @136. 只出现一次的数字
+        :type nums: List[int]
+        :rtype: int
+        """
+        # 超时 占性能
+        # for i in nums:
+        #     if nums.count(i)==1:
+        #         return i
+        hash_table = {}
+        for i in nums:
+            try:
+                hash_table.pop(i)
+            except:
+                hash_table[i] = 1
+        return hash_table.popitem()[0]
+
+    def intersect(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        nums1.sort()
+        nums2.sort()
+        r = []
+        left, right = 0, 0
+        while left < len(nums1) and right < len(nums2):
+            if nums1[left] < nums2[right]:
+                left += 1
+            elif nums1[left] == nums2[right]:
+                r.append(nums1[left])
+                left += 1
+                right += 1
+            else:
+                right += 1
+        return r
+
+    def freqAlphabets(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        chang = len(s)
+        i =0
+        res=''
+        while i <= chang-1:
+            if i+2<=chang-1 and s[i+2]=='#':
+                res+=self.convertToTitle(self,int(s[i:i+2]))
+                i+=3
+            else:
+                res+=self.convertToTitle(self,int(s[i]))
+                i+=1
+        return res
+
+    def convertToTitle(self,n):
+        res = ""
+        while n:
+            n -= 1
+            n, y = divmod(n, 26)
+            res = chr(y + 97) + res
+        return res
+
+    def xorQueries(self, arr, queries):
+        """
+        :type arr: List[int]
+        :type queries: List[List[int]]
+        :rtype: List[int]
+        """
+        res = []
+        for index in queries:
+            yihuo = 0
+            for i in range(index[0],index[1]+1):
+                yihuo = yihuo^arr[i]
+            res.append(yihuo)
+        return res
+
+    def reverse(self, x):
+        """
+        @7. 整数反转
+        :type x: int
+        :rtype: int
+        """
+        res,zheng = 0,True
+        if x<0:
+            x=-x
+            zheng =False
+        while x!=0:
+            temp = x %10
+            res = res*10+temp
+            x=x//10
+        if res>2147483647:
+            return 0
+        elif zheng:
+            return res
+        else:
+            return -res
+    def firstUniqChar(self, s):
+        """
+        @387. 字符串中的第一个唯一字符
+        :type s: str
+        :rtype: int
+        """
+        # 不知道哪里有错，编辑器和运行完结果不一致
+        # dic,i={},0
+        # while i<len(s):
+        #     if dic.get(s[i]):
+        #         dic[s[i]]+=1
+        #     else:
+        #         dic[s[i]]=1
+        #     i+=1
+        # for key,val in dic.items():
+        #     if val==1:
+        #         res = s.index(key)
+        #         return res
+        # return -1
+
+        dic = {}
+
+        # 记录字符出现次数
+        for c in s:
+            dic[c] = dic[c] + 1 if c in dic else 1
+
+        # 过滤出现次数不为一的字符
+        unique_chars = [k for k, v in filter(lambda kvp: kvp[1] == 1, dic.items())]
+        # 遍历目标字符串，返回首个出现在unique_chars中的字符的索引
+        for i, c in enumerate(s):
+            if c in unique_chars:
+                return i
+
+        return -1
+
+    def isAnagram(self, s, t):
+        """
+        242. 有效的字母异位词
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        jihe ={}
+        for i  in s:
+            if i not in jihe:
+                jihe[i]=1
+            else:
+                jihe[i]=jihe[i]+1
+        for d in t:
+            if d not in jihe:
+                return False
+            else:
+                jihe[d]=jihe[d]-1
+                if jihe[d]==0:
+                    del jihe[d]
+        if len(jihe)==0:
+            return True
+        else:
+            return False
+        # list(map(chr, range(ord('a'), ord('z') + 1)))  遍历字母
+        # [chr(x) for x in range(ord('A'), ord('Z') + 1)]
+
+
+
 
 
 
