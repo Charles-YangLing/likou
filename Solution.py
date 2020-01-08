@@ -820,6 +820,7 @@ class Solution:
             return res
         else:
             return -res
+
     def firstUniqChar(self, s):
         """
         @387. 字符串中的第一个唯一字符
@@ -879,8 +880,95 @@ class Solution:
             return True
         else:
             return False
-        # list(map(chr, range(ord('a'), ord('z') + 1)))  遍历字母
-        # [chr(x) for x in range(ord('A'), ord('Z') + 1)]
+    # list(map(chr, range(ord('a'), ord('z') + 1)))  遍历字母
+    # [chr(x) for x in range(ord('A'), ord('Z') + 1)]
+
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        newstr = ''
+        i=0
+        while i < len(s):
+            if ord(s[i]) in range(65,91) or ord(s[i]) in range(48,58) or ord(s[i]) in range(97,128):
+                newstr+=s[i]
+            i+=1
+        if newstr=='':
+            return True
+        yi,er=0,len(newstr)-1
+        newstr=newstr.lower()
+        while yi!=er:
+            if newstr[yi]==newstr[er]:
+                if yi+1==er:
+                    return True
+                yi+=1
+                er-=1
+            else:
+                return False
+        return True
+
+    def myAtoi(self, str):
+        """
+        @8. 字符串转换整数 (atoi)
+        没啥意义  懒得写了
+        :type str: str
+        :rtype: int
+        """
+        # str = str.replace(' ','')
+        # res=0
+        # i=0
+        # if str[0]=='-':
+        #     i=1
+        #     while i<len(str):
+        #         if (int(str[i])>=0 and int(str[i])<=9):
+        #             str
+        #         i+=1
+        # elif str[0]!='0':
+        #     while i <len(str):
+        #         if str[0]
+        # else:
+        #     return 0
+        # return max(min(int(*re.findall('^[\+\-]?\d+', str.lstrip())), 2 ** 31 - 1), -2 ** 31) 正则一句搞定
+
+    def countAndSay(self, n):
+        """
+        @38. 外观数列
+        :type n: int
+        :rtype: str
+        """
+        s='11'
+        if n==1:
+            return "1"
+        if n==2:
+            return "11"
+        while n>2:
+            s = Solution.waiguan(self,s)
+            n-=1
+        return s
+    def waiguan(self,s):
+        res=''
+        i,j =0,1
+        while j<len(s):
+            if s[i]==s[j]:
+                j+=1
+            else:
+                res+=str(j-i)+s[i]
+                i=j
+                j+=1
+        res+=str(j-i)+s[i]
+        return res
+
+    def deleteNode(self, node):
+        """
+        @237 删除链表中的节点
+        :type node: ListNode
+        :rtype: void Do not return anything, modify node in-place instead.
+        """
+        node.val = node.next.val
+        node.next = node.next.next
+
+
 
 
 
