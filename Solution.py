@@ -968,6 +968,95 @@ class Solution:
         node.val = node.next.val
         node.next = node.next.next
 
+    def maxDepth(self, root):
+        """
+        @104. 二叉树的最大深度
+        :type root: TreeNode
+        :rtype: int
+        """
+        # 递归思想
+        # if root==None:
+        #     return 0
+        # else:
+        #     left_height = self.maxDepth(root.left)
+        #     right_height = self.maxDepth(root.right)
+        #     return max(left_height, right_height) + 1
+        # 迭代DFS
+        stack = []
+        if root is not None:
+            stack.append((1, root))
+
+        depth = 0 #最大深度
+        while stack != []:
+            current_depth, root = stack.pop() #当前深度和节点
+            if root is not None:
+                depth = max(depth, current_depth) #每一步都更新深度
+                stack.append((current_depth + 1, root.left)) #将后面的节点也推入栈
+                stack.append((current_depth + 1, root.right))
+
+        return depth
+
+    def isValidBST(self, root):
+        """
+        @98. 验证二叉搜索树
+        :type root: TreeNode
+        :rtype: bool
+        """
+
+        # def helper(node, lower=float('-inf'), upper=float('inf')):
+        #     if not node:
+        #         return True
+        #
+        #     val = node.val
+        #     if val <= lower or val >= upper:
+        #         return False
+        #
+        #     if not helper(node.right, val, upper):
+        #         return False
+        #     if not helper(node.left, lower, val):
+        #         return False
+        #     return True
+        #
+        # return helper(root)
+
+        stack, inorder = [], float('-inf')
+
+        while stack or root:
+            while root:
+                stack.append(root)
+                root = root.left
+            root = stack.pop()
+            # If next element in inorder traversal
+            # is smaller than the previous one
+            # that's not BST.
+            if root.val <= inorder:
+                return False
+            inorder = root.val
+            root = root.right
+
+        return True
+
+    def isSymmetric(self, root):
+        """
+        @101. 对称二叉树
+        :type root: TreeNode
+        :rtype: bool
+        """
+        if root==None:
+            return:True
+        else:
+            left_val=[root.left.val]
+            right_val=[root.right.val]
+            if left_val == right_val.reverse():
+                return True
+
+
+
+
+
+
+
+
 
 
 
