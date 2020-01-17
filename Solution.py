@@ -1043,12 +1043,244 @@ class Solution:
         :rtype: bool
         """
         if root==None:
-            return:True
+            return True
         else:
             left_val=[root.left.val]
             right_val=[root.right.val]
             if left_val == right_val.reverse():
                 return True
+
+    def levelOrder(self, root):
+        """
+        @102 二叉树的层次遍历
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        # levels = []
+        # if not root:
+        #     return levels
+        #
+        # def helper(node, level):
+        #     # start the current level
+        #     if len(levels) == level:
+        #         levels.append([])
+        #
+        #     # append the current node value
+        #     levels[level].append(node.val)
+        #
+        #     # process child nodes for the next level
+        #     if node.left:
+        #         helper(node.left, level + 1)
+        #     if node.right:
+        #         helper(node.right, level + 1)
+        #
+        # helper(root, 0)
+        # return levels
+        levels = []
+        if not root:
+            return levels
+
+        level = 0
+        queue = deque([root, ])
+        while queue:
+            # start the current level
+            levels.append([])
+            # number of elements in the current level
+            level_length = len(queue)
+
+            for i in range(level_length):
+                node = queue.popleft()
+                # fulfill the current level
+                levels[level].append(node.val)
+
+                # add child nodes of the current level
+                # in the queue for the next level
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+
+            # go to next level
+            level += 1
+
+        return levels
+
+    def sortedArrayToBST(self, nums):
+        """
+        @108. 将有序数组转换为二叉搜索树
+        :type nums: List[int]
+        :rtype: TreeNode
+        """
+        if not nums:
+            return []
+
+        # 找到中点作为根节点
+        mid = len(nums) // 2
+        node = TreeNode(nums[mid])
+
+        # 左侧数组作为左子树
+        left = nums[:mid]
+        right = nums[mid + 1:]
+
+        # 递归调用
+        node.left = self.sortedArrayToBST(left)
+        node.right = self.sortedArrayToBST(right)
+
+        return node
+
+    def merge(self, nums1, m, nums2, n):
+        """
+        :type nums1: List[int]
+        :type m: int
+        :type nums2: List[int]
+        :type n: int
+        :rtype: None Do not return anything, modify nums1 in-place instead.
+        """
+        for i in nums2:
+            nums1.append(i)
+        nums1.remove(0)
+        nums1.sort()
+
+    def firstBadVersion(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        left =1
+        right = n
+        while left<right:
+            mid = left+(right-left)//2
+            if isBadVersion(mid):
+                right=left
+            else:
+                left = mid+1
+        return left
+
+    def climbStairs(self, n):
+        """
+        @70 爬楼梯 ???
+        :type n: int
+        :rtype: int
+        """
+        dp = [0] * (n + 1)
+        dp[1] = 1
+        if (n < 2):
+            return dp[n]
+        dp[2] = 2
+        for i in range(3, n + 1):
+            dp[i] = dp[i - 1] + dp[i - 2]
+        return dp[n]
+
+    def maxProfit(self, prices):
+        """
+        @121 买卖股票的最佳时间 ???
+        :type prices: List[int]
+        :rtype: int
+        """
+        if len(prices)<=1:
+            return 0
+        diff = [0 for _ in range(len(prices)-1)]
+        for i in range(len(prices)-1):
+            diff[i] = prices[i+1]-prices[i]
+        dp = [0 for _ in range(len(prices)-1)]
+        dp[0] = max(0, diff[0])
+        max_profit = dp[0]
+        for i in range(1, len(prices)-1):
+            dp[i] = max(0, diff[i]+dp[i-1])
+            max_profit = max(max_profit, dp[i])
+        return max_profit
+        
+    def maxSubArray(self, nums):
+        """
+        @53 最大子序和 ???
+        :type nums: List[int]
+        :rtype: int
+        """
+        n = len(nums)
+        max_sum = nums[0]
+        for i in range(1, n):
+            if nums[i - 1] > 0:
+                nums[i] += nums[i - 1]
+            max_sum = max(nums[i], max_sum)
+
+        return max_sum
+
+    def preorderTraversal(self, root):
+        """
+        @144. 二叉树的前序遍历
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        res =[]
+        def qianxu(root1,res1):
+            """
+            :type root1: TreeNode
+            :rtype: List[int]
+            """
+            if root1.val is not None:
+                res1.append(root1.val)
+            if root1.left is not None:
+                qianxu(root1.left,res1)
+            if root1.right is not None:
+                qianxu(root1.right,res1)
+            return res1
+        if root ==None:
+            return res
+        else:
+            res = qianxu(root,res)
+        return res
+
+    def inorderTraversal(self, root):
+        """
+        @ 94.二叉树的中序遍历
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        stack=[]
+        res =[]
+        curr = root
+        while curr is not None or not len(stack) == 0:
+            while curr is not None:
+                stack.append(curr)
+                curr = curr.left
+            curr = stack.pop()
+            res.append(curr.val)
+            curr = curr.right
+        return res
+
+    def postorderTraversal(self, root):
+        """
+        @145. 二叉树的后序遍历
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        result = []
+
+        def dfs(root):
+            if root:
+                dfs(root.left)
+                dfs(root.right)
+                result.append(root.val)
+
+        dfs(root)
+        return result
+
+    def hasPathSum(self, root, sum):
+        """
+        @112. 路径总和
+        :type root: TreeNode
+        :type sum: int
+        :rtype: bool
+        """
+        if not root:
+            return False
+
+        sum -= root.val
+        if not root.left and not root.right:  # if reach a leaf
+            return sum == 0
+        return self.hasPathSum(root.left, sum) or self.hasPathSum(root.right, sum)
+
+
 
 
 

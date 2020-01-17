@@ -30,10 +30,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spider" />
     <property name="settings.editor.selected.configurable" value="kite.configurable" />
   </component>
-  <component name="RunManager" selected="Python.getPictureLocation">
+  <component name="RunManager" selected="Python.Tx">
     <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="likou" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,6 +97,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="aiqiyi" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="likou" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/aiqiyi.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="getPictureLocation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="likou" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -118,34 +139,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="life" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="likou" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/AppData/Local/Programs/Python/Python36/Tools/demo" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/AppData/Local/Programs/Python/Python36/Tools/demo/life.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.getPictureLocation" />
-        <item itemvalue="Python.Main" />
         <item itemvalue="Python.Tx" />
+        <item itemvalue="Python.Main" />
+        <item itemvalue="Python.aiqiyi" />
+        <item itemvalue="Python.getPictureLocation" />
         <item itemvalue="Python.Solution" />
-        <item itemvalue="Python.life" />
       </list>
     </recent_temporary>
   </component>
@@ -188,46 +188,58 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="708" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579076352393">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="708" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1579076352393" />
     <state x="598" y="114" key="CommitChangelistDialog2" timestamp="1578551823890">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="598" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578551823890" />
-    <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1578564080978">
+    <state width="1672" height="466" key="DebuggerActiveHint" timestamp="1578564834019">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578564080978" />
-    <state width="1899" height="281" key="GridCell.Tab.0.center" timestamp="1578564080978">
+    <state width="1672" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1578564834019" />
+    <state x="887" y="328" key="FileChooserDialogImpl" timestamp="1579054463744">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578564080978" />
-    <state width="1899" height="281" key="GridCell.Tab.0.left" timestamp="1578564080978">
+    <state x="887" y="328" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1579054463744" />
+    <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1579252330668">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578564080978" />
-    <state width="1899" height="281" key="GridCell.Tab.0.right" timestamp="1578564080978">
+    <state width="1899" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579252330668" />
+    <state width="1899" height="281" key="GridCell.Tab.0.center" timestamp="1579252330668">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578564080978" />
-    <state width="1899" height="289" key="GridCell.Tab.1.bottom" timestamp="1578563984450">
+    <state width="1899" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579252330668" />
+    <state width="1899" height="281" key="GridCell.Tab.0.left" timestamp="1579252330668">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="289" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578563984450" />
-    <state width="1899" height="289" key="GridCell.Tab.1.center" timestamp="1578563984450">
+    <state width="1899" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579252330668" />
+    <state width="1899" height="281" key="GridCell.Tab.0.right" timestamp="1579252330668">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="289" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578563984450" />
-    <state width="1899" height="289" key="GridCell.Tab.1.left" timestamp="1578563984450">
+    <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579252330668" />
+    <state width="1899" height="269" key="GridCell.Tab.1.bottom" timestamp="1579249263437">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="289" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578563984450" />
-    <state width="1899" height="289" key="GridCell.Tab.1.right" timestamp="1578563984450">
+    <state width="1899" height="269" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579249263437" />
+    <state width="1899" height="269" key="GridCell.Tab.1.center" timestamp="1579249263437">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="289" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578563984450" />
-    <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1578538173925">
+    <state width="1899" height="269" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579249263437" />
+    <state width="1899" height="269" key="GridCell.Tab.1.left" timestamp="1579249263437">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578538173925" />
+    <state width="1899" height="269" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579249263437" />
+    <state width="1899" height="269" key="GridCell.Tab.1.right" timestamp="1579249263437">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="269" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579249263437" />
+    <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1579228299780">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579228299780" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -236,6 +248,16 @@
           <url>file://$PROJECT_DIR$/Solution.py</url>
           <line>466</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/getPictureLocation.py</url>
+          <line>62</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/aiqiyi.py</url>
+          <line>54</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
