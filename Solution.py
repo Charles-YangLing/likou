@@ -2,6 +2,7 @@ from ListNode import ListNode
 from ListNode import ListNodep
 from ListNode import Node
 from TreeNode import TreeNode
+from math import e, log
 # class ListNode(object):
 #     def __init__(self, x):
 #         self.val = x
@@ -1280,12 +1281,166 @@ class Solution:
             return sum == 0
         return self.hasPathSum(root.left, sum) or self.hasPathSum(root.right, sum)
 
+    def maximum69Number (self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+        max = num
+        res =str(num)
+        if res.find('6') >=0:
+            res=res.replace('6','9',1)
+            max = int(res)
+        return max
 
+    def printVertically(self, s):
+        """
+        :type s: str
+        :rtype: List[str]
+        """
+        num = s.split(' ')
+        res=[]
+        maxlen = 0
+        for i in num:
+            if len(i)>maxlen:
+                maxlen = len(i)
+        for j in range(maxlen):
+            s=''
+            for x in num:
+                if j < len(x):
+                    s += x[j]
+                else:s +=' '
+            res.append(s.rstrip())
+        return res
 
+    def removeLeafNodes(self, root, target):
+        """
+        :type root: TreeNode
+        :type target: int
+        :rtype: TreeNode
+        """
+        def dfs(root):
+            if root:
+                if root.left is not None:
+                    dfs(root.left)
+                if root.right is not None:
+                    dfs(root.right)
+            if root.left is not None:
+                if root.left.left is None and root.left.right is None:
+                    if root.left.val == target:
+                        root.left = None
+            if root.right is not None:
+                if root.right.left is None and root.right.right is None:
+                    if root.right.val == target:
+                        root.right = None
+        dfs(root)
+        if root.left is None and root.right is None and root.val==target:
+            return None
+        return root
 
+    def longestPalindrome(self, s):
+        """
+        @5. 最长回文子串
+        :type s: str
+        :rtype: str
+        """
+        size = len(s)
+        if size < 2:
+            return s
 
+        dp = [[False for _ in range(size)] for _ in range(size)]
 
+        max_len = 1
+        start = 0
 
+        for i in range(size):
+            dp[i][i] = True
+
+        for j in range(1, size):
+            for i in range(0, j):
+                if s[i] == s[j]:
+                    if j - i < 3:
+                        dp[i][j] = True
+                    else:
+                        dp[i][j] = dp[i + 1][j - 1]
+                else:
+                    dp[i][j] = False
+
+                if dp[i][j]:
+                    cur_len = j - i + 1
+                    if cur_len > max_len:
+                        max_len = cur_len
+                        start = i
+        return s[start:start + max_len]
+
+    def Zconvert(self,s,numRows):
+        if numRows < 2: return s
+        res = ["" for _ in range(numRows)]
+        i, flag = 0, -1
+        for c in s:
+            res[i] += c
+            if i == 0 or i == numRows - 1: flag = -flag
+            i += flag
+        return "".join(res)
+
+    def maxArea(self, height):
+        """
+        @11. 盛最多水的容器
+        :type height: List[int]
+        :rtype: int
+        """
+        i, j, res = 0, len(height) - 1, 0
+        while i < j:
+            if height[i] < height[j]:
+                res = max(res, height[i] * (j - i))
+                i += 1
+            else:
+                res = max(res, height[j] * (j - i))
+                j -= 1
+        return res
+            
+    def searchInsert(self, nums, target):
+        """
+        @35. 搜索插入位置
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        if target in nums:
+            return nums.index(target)
+        else:
+            nums.append(target)
+            nums.sort()
+            return nums.index(target)
+    def lengthOfLastWord(self, s):
+        """
+        @58. 最后一个单词的长度
+        :type s: str
+        :rtype: int
+        """
+        if len(s.replace(' ',''))==0:
+            return 0
+        if s.find(' ')>-1:
+            a = s.split(' ')
+            if a[-1]=='':
+                return Solution.lengthOfLastWord(self,s[0:-1])
+            else:
+                return len(a[-1])
+        else:
+            return len(s)
+
+    def mySqrt(self, x):
+        """
+        @69. x 的平方根
+        :type x: int
+        :rtype: int
+        """
+        if x < 2:
+            return x
+
+        left = int(e ** (0.5 * log(x)))
+        right = left + 1
+        return left if right * right > x else right
 
 
 

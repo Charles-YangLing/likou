@@ -30,10 +30,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spider" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="kite.configurable" />
   </component>
-  <component name="RunManager" selected="Python.Tx">
+  <component name="RunManager" selected="Python.Main">
     <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="likou" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,8 +141,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Tx" />
         <item itemvalue="Python.Main" />
+        <item itemvalue="Python.Tx" />
         <item itemvalue="Python.aiqiyi" />
         <item itemvalue="Python.getPictureLocation" />
         <item itemvalue="Python.Solution" />
@@ -204,49 +204,49 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="887" y="328" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1579054463744" />
-    <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1579252330668">
+    <state width="1899" height="269" key="GridCell.Tab.0.bottom" timestamp="1582804444764">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579252330668" />
-    <state width="1899" height="281" key="GridCell.Tab.0.center" timestamp="1579252330668">
+    <state width="1899" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582804444764" />
+    <state width="1899" height="269" key="GridCell.Tab.0.center" timestamp="1582804444763">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579252330668" />
-    <state width="1899" height="281" key="GridCell.Tab.0.left" timestamp="1579252330668">
+    <state width="1899" height="269" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582804444763" />
+    <state width="1899" height="269" key="GridCell.Tab.0.left" timestamp="1582804444763">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579252330668" />
-    <state width="1899" height="281" key="GridCell.Tab.0.right" timestamp="1579252330668">
+    <state width="1899" height="269" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582804444763" />
+    <state width="1899" height="269" key="GridCell.Tab.0.right" timestamp="1582804444764">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579252330668" />
-    <state width="1899" height="269" key="GridCell.Tab.1.bottom" timestamp="1579249263437">
+    <state width="1899" height="269" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582804444764" />
+    <state width="1899" height="269" key="GridCell.Tab.1.bottom" timestamp="1582804444764">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="269" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579249263437" />
-    <state width="1899" height="269" key="GridCell.Tab.1.center" timestamp="1579249263437">
+    <state width="1899" height="269" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582804444764" />
+    <state width="1899" height="269" key="GridCell.Tab.1.center" timestamp="1582804444764">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="269" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579249263437" />
-    <state width="1899" height="269" key="GridCell.Tab.1.left" timestamp="1579249263437">
+    <state width="1899" height="269" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582804444764" />
+    <state width="1899" height="269" key="GridCell.Tab.1.left" timestamp="1582804444764">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="269" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579249263437" />
-    <state width="1899" height="269" key="GridCell.Tab.1.right" timestamp="1579249263437">
+    <state width="1899" height="269" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582804444764" />
+    <state width="1899" height="269" key="GridCell.Tab.1.right" timestamp="1582804444764">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="269" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579249263437" />
-    <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1579228299780">
+    <state width="1899" height="269" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582804444764" />
+    <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1582534212582">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579228299780" />
+    <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582534212582" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Solution.py</url>
-          <line>466</line>
+          <line>467</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -258,6 +258,11 @@
           <url>file://$PROJECT_DIR$/aiqiyi.py</url>
           <line>54</line>
           <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Solution.py</url>
+          <line>1346</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
