@@ -1442,14 +1442,192 @@ class Solution:
         right = left + 1
         return left if right * right > x else right
 
+    def deleteDuplicates(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        current = head
+        while current is not None and current.next is not None:
+            if current.next.val == current.val:
+                current.next = current.next.next
+            else:
+                current = current.next
+        return head
 
+    def merge(self, A, m, B, n):
+        """
+        :type A: List[int]
+        :type m: int
+        :type B: List[int]
+        :type n: int
+        :rtype: None Do not return anything, modify A in-place instead.
+        """
+        k =0
+        while n-k >0:
+            A[m+k] = B[k]
+            k+=1
+        A.sort()
+        return A
 
+    def swapPairs(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        # If the list has no node or has only one node left.
+        if not head or not head.next:
+            return head
 
+        # Nodes to be swapped
+        first_node = head
+        second_node = head.next
 
+        # Swapping
+        first_node.next  = self.swapPairs(second_node.next)
+        second_node.next = first_node
 
+        # Now the head is the second node
+        return second_node
 
+    def orangesRotting(self, grid):
+        """
+        @994
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        M = len(grid)
+        N = len(grid[0])
+        queue = []
 
+        count = 0  # count 表示新鲜橘子的数量
+        for r in range(M):
+            for c in range(N):
+                if grid[r][c] == 1:
+                    count += 1
+                elif grid[r][c] == 2:
+                    queue.append((r, c))
 
+        round = 0  # round 表示腐烂的轮数，或者分钟数
+        while count > 0 and len(queue) > 0:
+            round += 1
+            n = len(queue)
+            for i in range(n):
+                r, c = queue.pop(0)
+                if r - 1 >= 0 and grid[r - 1][c] == 1:
+                    grid[r - 1][c] = 2
+                    count -= 1
+                    queue.append((r - 1, c))
+                if r + 1 < M and grid[r + 1][c] == 1:
+                    grid[r + 1][c] = 2
+                    count -= 1
+                    queue.append((r + 1, c))
+                if c - 1 >= 0 and grid[r][c - 1] == 1:
+                    grid[r][c - 1] = 2
+                    count -= 1
+                    queue.append((r, c - 1))
+                if c + 1 < N and grid[r][c + 1] == 1:
+                    grid[r][c + 1] = 2
+                    count -= 1
+                    queue.append((r, c + 1))
+
+        if count > 0:
+            return -1
+        else:
+            return round
+
+    def distributeCandies(self, candies, num_people):
+        """
+        @1103. 分糖果 II
+        :type candies: int
+        :type num_people: int
+        :rtype: List[int]
+        """
+        ans = [0] * num_people
+        i = 0
+        while candies != 0:
+            ans[i % num_people] += min(i + 1, candies)
+            candies -= min(i + 1, candies)
+            i += 1
+        return ans
+
+    def diameterOfBinaryTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        self.ans = 1
+        def depth(node):
+            # 访问到空节点了，返回0
+            if not node: return 0
+            # 左儿子为根的子树的深度
+            L = depth(node.left)
+            # 右儿子为根的子树的深度
+            R = depth(node.right)
+            # 计算d_node即L+R+1 并更新ans
+            self.ans = max(self.ans, L+R+1)
+            # 返回该节点为根的子树的深度
+            return max(L, R) + 1
+
+        depth(root)
+        return self.ans - 1
+
+    def fib(self, N):
+        """
+        :type N: int
+        :rtype: int
+        """
+        catch ={}
+        def recur_fib(N):
+            if N in catch:
+                return catch[N]
+
+            if N < 2:
+                result = N
+            else:
+                result = recur_fib(N - 1) + recur_fib(N - 2)
+
+            # put result in cache for later reference.
+            catch[N] = result
+            return result
+
+        return recur_fib(N)
+
+    def myPow(self, x, n):
+        """
+        :type x: float
+        :type n: int
+        :rtype: float
+        """
+        # 超出时间限制
+        # res = 1
+        # if n == 0:
+        #     return res
+        # elif  n>0:
+        #     while n >0:
+        #         res= x*res
+        #         n = n-1
+        #     return res
+        # else:
+        #     n = n * -1
+        #     while n >0:
+        #         res= x*res
+        #         n = n-1
+        #     return 1 % res
+        def __help(a, b):
+            if b == 1:
+                return a
+            elif b & 1:
+                return a * __help(a, b - 1)
+            elif not b & 1:
+                return __help(a * a, b // 2)
+
+        if n > 0:
+            return __help(x, n)
+        elif n == 0:
+            return 1
+        else:
+            return __help(1 / x, -n)
 
 
 
