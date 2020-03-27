@@ -1,8 +1,11 @@
+import collections
+
 from ListNode import ListNode
 from ListNode import ListNodep
 from ListNode import Node
 from TreeNode import TreeNode
 from math import e, log
+import math
 # class ListNode(object):
 #     def __init__(self, x):
 #         self.val = x
@@ -1629,20 +1632,329 @@ class Solution:
         else:
             return __help(1 / x, -n)
 
+    def canThreePartsEqualSum(self, A):
+        """
+        @1013. 将数组分成和相等的三个部分
+        :type A: List[int]
+        :rtype: bool
+        """
+        # 超时
+        # if sum(A)%3!=0:
+        #     return False
+        # he = sum(A)/3
+        # i,j =1,len(A)-1
+        # while i<j:
+        #     if sum(A[:i]) != he:
+        #         i = i + 1
+        #     if sum(A[j:]) != he:
+        #         j = j - 1
+        #     if sum(A[:i]) ==sum(A[i:j]) ==sum(A[j:]) ==he:
+        #         if i==j:
+        #             continue
+        #         return True
+        # return False
+        s = sum(A)
+        if s % 3 != 0:
+            return False
+        target = s // 3
+        n, i, cur = len(A), 0, 0
+        while i < n:
+            cur += A[i]
+            if cur == target:
+                break
+            i += 1
+        if cur != target:
+            return False
+        j = i + 1
+        while j + 1 < n:  # 需要满足最后一个数组非空
+            cur += A[j]
+            if cur == target * 2:
+                return True
+            j += 1
+        return False
+
+    def gcdOfStrings(self, str1, str2):
+        """
+        :type str1: str
+        :type str2: str
+        :rtype: str
+        """
+        candidate_len = math.gcd(len(str1), len(str2))
+        candidate = str1[: candidate_len]
+        if str1 + str2 == str2 + str1:
+            return candidate
+        return ''
+
+    def lengthOfLIS(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return 0
+        dp = []
+        for i in range(len(nums)):
+            dp.append(1)
+            for j in range(i):
+                if nums[i] > nums[j]:
+                    dp[i] = max(dp[i], dp[j] + 1)
+        return max(dp)
+
+    def compressString(self, S):
+        """
+        :type S: str
+        :rtype: str
+        """
+        res = ''
+        if len(S)<1:return ''
+        chang,k,d = len(S),1,0
+        while chang-d-1>0:
+
+            if d+1<chang and S[d] == S[d+1]:
+                k+=1
+            else:
+                res+=S[d]+str(k)
+                k=1
+            d+=1
+        res+= S[d] + str(k)
+        if len(res)>=chang:
+            return S
+        else:
+            return res
+
+    def kthGrammar(self, N, K):
+        """
+        @779. 第K个语法符号
+        :type N: int
+        :type K: int
+        :rtype: int
+        """
+        # 超时
+        # s='0'
+        # res=''
+        # while N>0:
+        #     for i in s:
+        #         if i=='0':
+        #             res+='01'
+        #         elif i=='1':
+        #             res+='10'
+        #     s=res
+        #     res=''
+        #     N-=1
+        # return s[K-1]
+        if N == 1: return 0
+        return (1 - K%2) ^ self.kthGrammar(N-1, (K+1)/2)
 
 
+    def countCharacters(self, words, chars):
+        """
+        :type words: List[str]
+        :type chars: str
+        :rtype: int
+        """
+        chars_cnt = collections.Counter(chars)
+        ans = 0
+        for word in words:
+            word_cnt = collections.Counter(word)
+            for c in word_cnt:
+                if chars_cnt[c] < word_cnt[c]:
+                    break
+            else:
+                ans += len(word)
+        return ans
 
 
+    def longestPalindrome(self, s):
+        """
+        @409. 最长回文串
+        :type s: str
+        :rtype: int
+        """
+        ans = 0
+        count = collections.Counter(s)
+        for v in count.values():
+            ans += v // 2 * 2
+            if ans % 2 == 0 and v % 2 == 1:
+                ans += 1
+        return ans
 
+    def canMeasureWater(self, x, y, z):
+        """
+        :type x: int
+        :type y: int
+        :type z: int
+        :rtype: bool
+        """
+        if x + y < z:
+            return False
+        if x == 0 or y == 0:
+            return z == 0 or x + y == z
+        return z % math.gcd(x, y) == 0
 
+    def numRookCaptures(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: int
+        """
+        x,y,n=0,0,0
+        for i in range(len(board)):
+            for j in range(len(board[i])):
+                if board[i][j]=="R":
+                    x=i
+                    y=j
+        for d in range(1,x):
+            if board[x-d][y]=="p" :
+                n+=1
+                break
+            if board[x-d][y]=="B":
+               break
+        for d in range(1,8-x):
+            if board[x+d][y]=="p":
+                n+=1
+                break
+            if board[x+d][y]=="B":
+                break
+        for d in range(1,y):
+            if board[x][y-d]=="p":
+                n+=1
+                break
+            if board[x][y-d]=="B":
+                break
+        for d in range(1,8-y):
+            if board[x][y+d]=="p":
+                n+=1
+                break
+            if board[x][y+d]=="B":
+                break
+        return n
 
+    def coinChange(self, coins, amount):
+        """
+        @322. 零钱兑换
+        :type coins: List[int]
+        :type amount: int
+        :rtype: int
+        """
+        # dp = [float('inf')] * (amount + 1)
+        # dp[0] = 0
+        #
+        # for coin in coins:
+        #     for x in range(coin, amount + 1):
+        #         dp[x] = min(dp[x], dp[x - coin] + 1)
+        # return dp[amount] if dp[amount] != float('inf') else -1
 
+        # 普通动态规划解法:当前的目标金额是 n，至少需要 dp(n) 个硬币凑出该金额确定「选择」并择优，
+        # 也就是对于每个状态，可以做出什么选择改变当前状态。具体到这个问题，无论当目标金额是多少，选择就是从面额列表 coins 中选择一个硬币，然后目标金额就会减少：
+        # def dp(n):
+        #     if n==0: return 0
+        #     if n<0: return -1
+        #     res = float('INF')
+        #     for coin in coins:
+        #         subproblem = dp(n - coin)
+        #         if subproblem == -1: continue
+        #         res = min(res, 1 + subproblem)
+        #     return res if res != float('INF') else -1
+        #
+        # return dp(amount)
 
+        # 备忘录
+        memo = dict()
+        def dp(n):
+            # 查备忘录，避免重复计算
+            if n in memo: return memo[n]
 
+            if n == 0: return 0
+            if n < 0: return -1
+            res = float('INF')
+            for coin in coins:
+                subproblem = dp(n - coin)
+                if subproblem == -1: continue
+                res = min(res, 1 + subproblem)
 
+            # 记入备忘录
+            memo[n] = res if res != float('INF') else -1
+            return memo[n]
 
+        return dp(amount)
 
+    def hasGroupsSizeX(self, deck):
+        """
+        @914. 卡牌分组
+        :type deck: List[int]
+        :rtype: bool
+        """
+        # dic = {}
+        # for d in deck:
+        #     if d in dic.keys():
+        #         continue
+        #     else:dic[d] = deck.count(d)
+        # b = set(dic.values())
+        # if len(b)==1 and dic.values()[0]>=2:
+        #     return True
+        # elif len(b)>1:
+        #     minx = min(b)
+        #     for x in b:
+        #         if x%minx==0:
+        #             continue
+        #         else:
+        #             return False
+        #     return True
+        # else:
+        #     return False
 
+        # 思路:寻找最大公约数 》=2的
+        # from fractions import gcd
+        # vals = collections.Counter(deck).values()
+        # return reduce(gcd, vals) >= 2
+
+    def createTargetArray(self, nums, index):
+        """
+        @1389. 按既定顺序创建目标数组
+        :type nums: List[int]
+        :type index: List[int]
+        :rtype: List[int]
+        """
+        ret = []
+        for i in range(len(nums)):
+            ret.insert(index[i], nums[i])
+        return ret
+
+    def sumFourDivisors(self, nums):
+        """
+        @1390. 四因数
+        :type nums: List[int]
+        :rtype: int
+        """
+        # res =0
+        # for num in nums:
+        #     x= 1
+        #     n=[]
+        #     while num - x>=0:
+        #         if num%x==0:
+        #             n.append(x)
+        #             if len(n)>4:
+        #                 break
+        #         x+=1
+        #     if len(n)==4:
+        #         res+=sum(n)
+        # return res  超时
+        ans = 0
+        for num in nums:
+            # factor_cnt: 因数的个数
+            # factor_sum: 因数的和
+            factor_cnt = factor_sum = 0
+            i = 1
+            while i * i <= num:
+                if num % i == 0:
+                    factor_cnt += 1
+                    factor_sum += i
+                    if i * i != num:   # 判断 i 和 num/i 是否相等，若不相等才能将 num/i 看成新的因数
+                        factor_cnt += 1
+                        factor_sum += num // i
+                i += 1
+            if factor_cnt == 4:
+                ans += factor_sum
+        return ans
 
 
 
